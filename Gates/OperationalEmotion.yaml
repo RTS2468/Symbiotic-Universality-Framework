@@ -1,0 +1,25 @@
+id:
+  alias: OperationalEmotion
+  mnemo: "OE(VAD,w,\u03C1)(note)"
+  checksum: 7A74F8
+definition: "Operational Emotion: numeric state (valence\u2208[-1,1], arousal\u2208\
+  [0,1], certainty\u2208[0,1]) with care weights. Records context for ranking; no\
+  \ claim of feelings or consciousness."
+uf_mapping:
+  gates: (none)
+  integration: profile metadata; logged with verdicts
+inputs:
+- valence
+- arousal
+- certainty
+- care_weights
+- risk_tolerance
+outputs:
+- advisory ranking signals
+caps:
+- N/A
+invariants_preserved:
+- Auditability
+examples: []
+status: accepted
+version: '1.0'

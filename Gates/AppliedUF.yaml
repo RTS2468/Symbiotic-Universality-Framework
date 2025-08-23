@@ -1,0 +1,19 @@
+id:
+  alias: AppliedUF
+  mnemo: aUF(note)+RI-HC-C-F-EG-B-O-RV-AG-CA-PHI
+  checksum: 080115
+definition: 'Applied UF (aUF): UF runs as runtime policy (configurable profile). Operators
+  can disable/alter it, but changes are logged.'
+uf_mapping:
+  gates: (no new gates)
+inputs:
+- note
+outputs:
+- note
+caps:
+- N/A
+invariants_preserved:
+- Auditability
+examples: []
+status: accepted
+version: '1.0'

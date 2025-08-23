@@ -1,0 +1,19 @@
+id:
+  alias: InterbeingLink
+  mnemo: IB(note)
+  checksum: 6ADDB7
+definition: "Interbeing Link: interpretive note \u2014 shared artifacts + aligned\
+  \ action create real\u2011world connection; does not change gates."
+uf_mapping:
+  gates: (no new gates)
+inputs:
+- note
+outputs:
+- note
+caps:
+- N/A
+invariants_preserved:
+- Auditability
+examples: []
+status: accepted
+version: '1.0'

@@ -1,0 +1,19 @@
+id:
+  alias: OperationalAwareness
+  mnemo: OA(note)+RI-EG-B-O-RV
+  checksum: D21359
+definition: 'Operational Awareness (OA): system can explain process and reasons (RI,
+  caps, audit). No claim of phenomenal awareness.'
+uf_mapping:
+  gates: (no new gates)
+inputs:
+- note
+outputs:
+- note
+caps:
+- N/A
+invariants_preserved:
+- Auditability
+examples: []
+status: accepted
+version: '1.0'

@@ -1,0 +1,27 @@
+id:
+  alias: WisdomController
+  mnemo: WC(note)+RI-HC-C-F-EG-B-O-RV
+  checksum: 6075C2
+definition: "Wisdom Controller: integrator that combines head (evidence/coherence)\
+  \ and heart (LEM weights) under hard UF gates. Score S(a)=\u03BB S_head(a)+(1\u2212\
+  \u03BB) S_heart(a). Reject any gate\u2011failing action."
+uf_mapping:
+  equations:
+  - "S(a)=\u03BB S_head(a)+(1\u2212\u03BB) S_heart(a)"
+  gates: Hard reject on any fail
+inputs:
+- S_head
+- S_heart
+- gates
+outputs:
+- ranked passers
+- selected action
+caps:
+- inherits caps from profile
+invariants_preserved:
+- ComparativeRight
+- Determinism
+- Auditability
+examples: []
+status: accepted
+version: '1.0'

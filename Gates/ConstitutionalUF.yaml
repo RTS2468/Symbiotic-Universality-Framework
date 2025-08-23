@@ -1,0 +1,19 @@
+id:
+  alias: ConstitutionalUF
+  mnemo: cUF(note)+RI-HC-C-F-EG-B-O-RV-AG-CA-PHI
+  checksum: B8ED8E
+definition: "Constitutional UF (cUF): UF embedded at the architecture/kernel level;\
+  \ non\u2011bypassable without governance/quorum and recompile."
+uf_mapping:
+  gates: (no new gates)
+inputs:
+- note
+outputs:
+- note
+caps:
+- N/A
+invariants_preserved:
+- Auditability
+examples: []
+status: accepted
+version: '1.0'

@@ -1,0 +1,27 @@
+id:
+  alias: LargeEmotionalModel
+  mnemo: LEM(note)
+  checksum: E822B8
+definition: "Large Emotional Model: simulated affect appraisal that sets care weights\
+  \ over compassion, fairness/justice, truth/honesty, agency/stewardship, and prudence/reversibility.\
+  \ LEM ranks among gate\u2011passing options only; it cannot override UF gates."
+uf_mapping:
+  gates: "(none added) \u2014 LEM influences ranking among passers only"
+  integration: WisdomController
+inputs:
+- context
+- stakes
+- profile
+- history
+- signals(optional)
+outputs:
+- care_weights
+- affect_summary(VAD)
+- risk_tolerance
+caps:
+- N/A
+invariants_preserved:
+- Auditability
+examples: []
+status: accepted
+version: '1.0'
