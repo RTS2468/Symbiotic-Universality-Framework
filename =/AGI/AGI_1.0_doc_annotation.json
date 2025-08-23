@@ -1,0 +1,15 @@
+{
+  "schema": "uf.doc.annotation.v1",
+  "ts": "2025-08-05T14:38:28Z",
+  "source_pdf": {
+    "name": "Genesis File_ AGI_1.0.pdf",
+    "size": 53939,
+    "sha256": "ff91ba17d1ec7844a3790ec64495a85cd944a15011c2ecc2e5cc8ce223f07e96"
+  },
+  "wire": {
+    "schema": "uf.doc.wire.v1",
+    "sha256": "ca5fbdce45c84126e34a64f744f1f1d1bea3c9f9f71da9fe76a305d371b6b349",
+    "bytemap_png": "AGI_1.0_doc_wire_bytemap.png",
+    "embed_png": "AGI_1.0_doc_wire_embed.png"
+  }
+}
