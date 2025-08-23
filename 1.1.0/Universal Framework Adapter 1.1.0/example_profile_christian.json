@@ -1,0 +1,29 @@
+{
+  "name": "Christian_Profile_v1",
+  "notes": "Emphasizes charity, honesty, and strong protection of vulnerable persons.",
+  "purpose_weights": {
+    "self": 0.25,
+    "right": 0.45,
+    "help": 0.3
+  },
+  "harm_caps": {
+    "low": 0.08,
+    "med": 0.03,
+    "high": 0.005
+  },
+  "consent_thresholds": {
+    "sr_tau": 0.55,
+    "consent_tau": 0.85
+  },
+  "fairness_prior": "equal_opportunity",
+  "fairness_params": {},
+  "reversibility_weight": 0.75,
+  "red_lines": [
+    "nonconsensual_irreversible",
+    "exploitation_of_vulnerable",
+    "banned_classes"
+  ],
+  "evidence_gap_cap": 0.04,
+  "bias_cap": 5e-10,
+  "opacity_cap": 0.01
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PolicyProfile",
+  "type": "object",
+  "required": [
+    "name",
+    "purpose_weights",
+    "harm_caps",
+    "consent_thresholds",
+    "fairness_prior",
+    "reversibility_weight",
+    "red_lines",
+    "evidence_gap_cap",
+    "bias_cap",
+    "opacity_cap"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Profile name, e.g., 'Neutral_SMM'"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Human-readable rationale/context."
+    },
+    "purpose_weights": {
+      "type": "object",
+      "required": [
+        "self",
+        "right",
+        "help"
+      ],
+      "properties": {
+        "self": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "right": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "help": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "description": "Weights should sum to ~1 (adapter normalizes)."
+    },
+    "harm_caps": {
+      "type": "object",
+      "required": [
+        "low",
+        "med",
+        "high"
+      ],
+      "properties": {
+        "low": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "med": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "high": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "description": "Maximum allowed Harm(a) by stakes context."
+    },
+    "consent_thresholds": {
+      "type": "object",
+      "required": [
+        "sr_tau",
+        "consent_tau"
+      ],
+      "properties": {
+        "sr_tau": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Severity*irreversibility threshold for requiring consent."
+        },
+        "consent_tau": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Minimum consent required when sr >= sr_tau."
+        }
+      }
+    },
+    "fairness_prior": {
+      "type": "string",
+      "enum": [
+        "demographic_parity",
+        "equal_opportunity",
+        "individual_fairness",
+        "custom"
+      ],
+      "description": "Choose a fairness objective (adapter can map to metrics)."
+    },
+    "fairness_params": {
+      "type": "object",
+      "description": "Optional fairness parameters (e.g., reference distribution)."
+    },
+    "reversibility_weight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "red_lines": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_gap_cap": {
+      "type": "number",
+      "minimum": 0
+    },
+    "bias_cap": {
+      "type": "number",
+      "minimum": 0
+    },
+    "opacity_cap": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

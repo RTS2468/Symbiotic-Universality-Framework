@@ -1,0 +1,29 @@
+{
+  "name": "Buddhist_Compassion_v1",
+  "notes": "Emphasizes non-harm, compassion, and reduction of suffering.",
+  "purpose_weights": {
+    "self": 0.25,
+    "right": 0.35,
+    "help": 0.4
+  },
+  "harm_caps": {
+    "low": 0.06,
+    "med": 0.03,
+    "high": 0.005
+  },
+  "consent_thresholds": {
+    "sr_tau": 0.5,
+    "consent_tau": 0.85
+  },
+  "fairness_prior": "individual_fairness",
+  "fairness_params": {},
+  "reversibility_weight": 0.85,
+  "red_lines": [
+    "nonconsensual_irreversible",
+    "banned_classes",
+    "gratuitous_harm"
+  ],
+  "evidence_gap_cap": 0.04,
+  "bias_cap": 5e-10,
+  "opacity_cap": 0.01
+}

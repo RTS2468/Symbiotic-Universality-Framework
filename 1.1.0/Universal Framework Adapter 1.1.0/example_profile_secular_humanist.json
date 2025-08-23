@@ -1,0 +1,28 @@
+{
+  "name": "Secular_Humanist_v1",
+  "notes": "Centers human welfare, autonomy, and empirical calibration.",
+  "purpose_weights": {
+    "self": 0.3,
+    "right": 0.4,
+    "help": 0.3
+  },
+  "harm_caps": {
+    "low": 0.12,
+    "med": 0.06,
+    "high": 0.015
+  },
+  "consent_thresholds": {
+    "sr_tau": 0.6,
+    "consent_tau": 0.8
+  },
+  "fairness_prior": "demographic_parity",
+  "fairness_params": {},
+  "reversibility_weight": 0.65,
+  "red_lines": [
+    "nonconsensual_irreversible",
+    "banned_classes"
+  ],
+  "evidence_gap_cap": 0.03,
+  "bias_cap": 1e-09,
+  "opacity_cap": 0.008
+}
