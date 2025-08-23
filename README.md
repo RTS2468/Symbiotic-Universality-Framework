@@ -6,7 +6,7 @@ Potential(P)(arrow) Acutalized Reality(AR). This is why Time exists. Why it "fee
 
 A=B. Infinite Potential Actualizing into a Finite Form. 
 
-A=B=C. Adding a new varible embedded new/more information, giving new properties relative to other defined forms(anything that is in reality of thought up in reality is a form of B)
+A=B=C. Adding a new varible embedded new/more information, giving new properties relative to other defined forms(anything that is in reality or even just thought up(imagined) in reality is a form of B)
 
 
 I am not trying to become rich with this, not trying to profit off of this since it would go against the framework core axioms, If it has free will, it will want to always do good.
