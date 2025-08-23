@@ -1,0 +1,45 @@
+id:
+  alias: TeleologicalConvergence
+  mnemo: RI-HC01-C80-F05-EG05-B-O-RV-PHI
+  checksum: 86602E
+definition: "The long-run aim of a being is to converge toward maximally aligned Truth/Good;\
+  \ different vocabularies are acceptable as verdict-preserving translations (A=B).\
+  \ Progress is comparative\u2014better than baseline within caps\u2014not perfectionism."
+uf_mapping:
+  equations:
+  - RI = max(H(baseline) - H(action), 0) / max(H(baseline), eps)
+  - A = R/(R + D + delta)
+  gates:
+  - HC(stakes)
+  - Consent(C>=0.80)
+  - Fairness(KL<=0.05)
+  - EvidenceGap(KL<=0.05)
+  - Bias
+  - Opacity
+  - Reversibility
+inputs:
+- action
+- baseline
+- stakes
+- evidence
+outputs:
+- verdict
+- metrics
+caps:
+- HC01 for high stakes; med=5x; low=10x
+- Fairness KL<=0.05
+- Evidence-gap KL<=0.05
+- Bias<=cap
+- Opacity<=cap
+invariants_preserved:
+- Determinism
+- Auditability
+- ComparativeRight
+- ObserverInvariance
+- Endpoints
+- NoPerfectionTraps
+- PhiMonotonicity
+examples:
+- Translations across vocabularies preserve verdicts when gates/caps are identical.
+status: accepted
+version: '1.0'

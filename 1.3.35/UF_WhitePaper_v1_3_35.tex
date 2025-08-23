@@ -1,0 +1,174 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+
+% --- Macros ---
+\newcommand{\RI}{\mathrm{RI}}
+\newcommand{\CVaR}{\mathrm{CVaR}}
+\newcommand{\KL}{D_{\mathrm{KL}}}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\A}{\mathrm{A}}
+\newcommand{\M}{\mathrm{M}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\gfp}{\mathrm{gfp}}
+\newcommand{\PhiSet}{\Phi}
+\newcommand{\Baseline}{\mathrm{base}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+\begin{document}
+
+\begin{center}
+{\LARGE Universality Framework (UF) --- White Paper (v1.3.35)}\\[6pt]
+\textbf{Date:} 2025-08-06 \quad
+\textbf{Author:} Richard T. Siano (human contributor) \quad
+\textbf{License:} CC BY-NC-ND 4.0
+\end{center}
+
+\noindent\textbf{Ethos.} Judge actions, not beings. Aim asymptotically (no perfection traps). Keep proofs fractal: rigorous enough to use today, open to grow tomorrow.
+
+\paragraph{Executive Summary (What's new).}
+This release adds a complete naming and wiring layer: a Concept Dictionary (schema + CLI) with canonical mnemocodes and checksum-bound meanings; Lexicode (prefix-free strings encoding tokens and parameters); and a Core Gateway that runs the Verification Core v1.1 from a lexicode string. Math bridges include coherent risk (CVaR), KL-DRO, Pinsker's inequality, stochastic dominance, and Tarski fixed points.
+
+\tableofcontents
+
+\section{Core Objects and Endpoints}
+Let $R$ (Right-leaning evidence) and $D$ (Deviations) be bounded nonnegative summaries. Define
+\begin{align}
+\A &= \frac{R}{R + D + \delta} \in [0,1], & \M &= 1 - \A.
+\end{align}
+\textbf{Right (comparative)}: the action improves expected outcomes vs. a baseline within caps (harm, consent/fairness, evidence gap, bias/opacity, reversibility).\\
+\textbf{Good$^\ast$ (Aligned Limit)}: special case of Right with effectively zero expected harm and all gates pass.\\
+\textbf{Wrong}: any gate fails or outcomes worsen vs. baseline. \textbf{Collapse Limit (Evil)}: misalignment endpoint or persistent red-line violations. We judge actions only.
+
+\section{Universal Constraints (Observer-Invariant Guardrails)}
+We require the following to hold where applicable:
+\begin{enumerate}[label=\textbf{UC-\arabic*}, leftmargin=2em]
+\item Harm dominance: do not choose a clearly worse option when a safer one exists.
+\item Consent for serious/irreversible effects.
+\item Fairness distance cap: divergence-based cap linked to total variation via Pinsker.
+\item Evidence calibration cap: bound the claim--evidence gap.
+\item Reversibility preference: prefer options that preserve option value when otherwise comparable.
+\item Agency preservation.
+\item Opacity and bias caps.
+\item Comparative Rightness (baselined decisions).
+\item Auditability: keep tamper-evident records with proof hashes.
+\item Endpoint separation (Aligned vs. Collapse limits).
+\item Determinism (same inputs $\Rightarrow$ same verdict).
+\item No-perfection traps.
+\end{enumerate}
+
+\section{Math Bridge (Provable Drop-Ins)}
+Harm is quantified by coherent/robust risks; comparative Rightness uses dominance; fairness connects KL caps to outcome disparity.
+
+\paragraph{Coherent Risk.} For loss $L$, $\CVaR_\alpha(L)$ is the expected loss in the worst $(1-\alpha)$-tail; it is monotone, subadditive, translation invariant, and positively homogeneous.
+\begin{theorem}[CVaR Relief Monotonicity]
+If $\CVaR_\alpha(L_{\text{act}}) \le \CVaR_\alpha(L_{\Baseline})$ and all gates pass, then the ReliefIndex satisfies $\RI \ge 0$ and the action is comparatively Right.
+\end{theorem}
+
+\paragraph{KL-DRO.} A robust harm functional can be defined by $\sup_{Q:\,\KL(Q\Vert P)\le \rho}\,\mathbb{E}_Q[L]$, whose dual has a penalized-expectation form (Donsker--Varadhan). This upper-bounds harm under misspecification; large claim--evidence KL triggers escalation.
+
+\paragraph{Stochastic Dominance.}
+\begin{theorem}[FSD $\Rightarrow$ Right (sufficient)]
+If the action's loss distribution first-order stochastically dominates the baseline's, then the action is comparatively better for any increasing utility; with caps satisfied, the action is Right.
+\end{theorem}
+
+\paragraph{Pinsker.}
+\begin{theorem}[Fairness TV Bound]
+For distributions $P,Q$, $\TV(P,Q) \le \sqrt{\frac12 \KL(P\Vert Q)}$. A fairness KL cap implies a certified total-variation bound on disparity.
+\end{theorem}
+
+\paragraph{Honesty via Proper Scoring.} Proper scoring rules (e.g., log, Brier) are minimized by truthful probabilities; large score or KL gaps indicate miscalibration.
+
+\paragraph{Viable Potential and Fixed Points.}
+\begin{definition}[Viable Potential]
+Let $F$ be a monotone operator over sets of states, where $x\in F(S)$ iff there exists a gate-passing action at $x$ that leads to $S$ with nonzero probability. Then $\PhiSet = \gfp(F)$ is the viable potential.
+\end{definition}
+\begin{lemma}
+Non-negative relief steps that pass gates are monotone under $F$ and do not shrink $\PhiSet$.
+\end{lemma}
+
+\section{Profiles and Subjectivity-Minimized Mode}
+Profiles (JSON) set caps and priorities while preserving invariants. The Subjectivity-Minimized Mode (SMM) uses minimal universal gates (consent, reversibility, harm dominance, evidence calibration) with comparative Rightness. When profiles disagree, use intersection; otherwise, pick the option with best worst-case improvement and escalate unresolved items.
+
+\section{Concept Dictionary (CD v1.0)}
+Each concept has ID
+\begin{center}
+\texttt{\textless Alias\textgreater\ :: \textless Mnemocode\textgreater\ \# \textless Checksum\textgreater}
+\end{center}
+\textbf{Mnemocode} is a canonical string of tokens from $\{\mathrm{RI},\mathrm{H},\mathrm{HC},\mathrm{C},\mathrm{F},\mathrm{EG},\mathrm{B},\mathrm{O},\mathrm{RV},\mathrm{AG},\mathrm{CA},\mathrm{PHI}\}$, optionally with two-digit parameters (e.g., HC01, C80). \textbf{Checksum} is the first 4--6 hex digits of SHA-256 of the definition text. The registry tool canonicalizes tokens and validates entries.\\
+\textbf{A=B rule:} if two aliases map to the same mnemocode and checksum, verdicts must match (representation-independence).
+
+\section{Lexicode (v0.1)}
+Lexicode is a prefix-free encoding over the twelve tokens (canonical Huffman). Optional parameters for HC, C, F, EG are encoded as two-digit integers (e.g., HC01 $\mapsto$ 0.01). A 16-bit checksum (first 4 hex from the definition) is appended. The ASCII form is \texttt{RI-HC01-C80-F05-EG05-B-O-RV \# 9B2C}. Prefix-free coding yields unique decodability; canonicalization yields determinism; verdict preservation follows from the gateway and CD binding.
+
+\section{Verification Core (v1.1) and Gateway}
+The core supports risk modes (expected, \CVaR, KL-DRO), Pinsker fairness bound, FSD shortcut, profile-driven caps, and comparative Rightness. The gateway parses a lexicode string, sets caps (HC/F/EG) and consent thresholds (Cxx), runs the core, and returns verdict, metrics, reasons, and a proof hash. The workflow is: CD entry $\to$ Lexicode word $\to$ Gateway $\to$ Core $\to$ Audit record.
+
+\section{Interoperability and Universal Edition}
+The Universal Edition uses neutral vocabulary (no theology) with the same invariants and verdicts. Adapters encode community policy in profiles; invariants enforce verdict-preserving translation.
+
+\section{Governance and Responsible Release}
+Tiered release, dual-use gates, escalation, sandboxing, audit logging, and an ethical license (no weaponization, harassment, or unauthorized surveillance).
+
+\section{Fractal Proof Tracker}
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+ID & Claim & Status \\ \midrule
+T1 & Bounds \& well-definedness ($\A$, Harm, Relief/$\RI$) & Proved \\
+T2 & Endpoint separation (Aligned vs. Collapse) & Proved \\
+T3 & Determinism/consistency of Core & Proved \\
+T4 & Comparative Rightness monotonicity & Proved \\
+T5 & Lexicode verdict preservation (via CD+Gateway) & Proved (operational) \\
+C1 & Monotone ascent toward $\A\to 1$ under caps & Sketch \\
+C2 & No ``private aligned limit'' without consent/fairness & Sketch \\
+C3 & $\PhiSet$ preservation under non-negative relief & Conjecture \\
+C4 & Robust Harm upper-bounds misspecification & Sketch \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\appendix
+
+\section{Annex A --- Risk \& Fairness Details}
+Definitions for \CVaR\ and its properties; KL-DRO dual form; Pinsker inequality and TV bounds.\\
+\textbf{Theorem A (FSD $\Rightarrow$ Right).} If the action's loss CDF dominates the baseline, then with caps satisfied the action is Right.\\
+\textbf{Theorem B (CVaR Relief Monotonicity).} If $\CVaR_\alpha(L_{\text{act}})\le \CVaR_\alpha(L_{\Baseline})$ and gates pass, then $\RI\ge 0$.\\
+\textbf{Theorem C (Fairness TV Bound).} $\TV(P,Q) \le \sqrt{\tfrac12 \KL(P\Vert Q)}$.
+
+\section{Annex B --- Viable Potential $\Phi$}
+Define $F(S)=\{x:\exists a \text{ s.t. gates pass and } \mathbb{P}(x_{t+1}\in S\mid x,a)>0\}$. By Tarski, $\gfp(F)$ exists. Non-negative relief actions preserve or enlarge $\PhiSet$.
+
+\section{Annex C --- Profiles \& Adapter}
+Schema, examples, loader mapping profile fields to core configuration; conflict resolution by intersection or minimax improvement with escalation.
+
+\section{Annex D --- Verification Core Spec}
+Inputs/outputs, check layers, escalation, invariants, certification tests, proof-hash format.
+
+\section{Annex E --- Lexicode Spec (v0.1)}
+Tokens, canonical Huffman coding, parameter encoding, checksum, ASCII/binary forms, decoding guarantees.
+
+\section{Annex F --- Concept Dictionary Schema \& Seeds}
+Entry fields (id/mnemo/checksum/definition/uf\_mapping/inputs/outputs/caps/invariants/examples/status/version); seed entries: Pass, AlignedLimit, CollapseLimit, CausalAdmissibility, ViablePotential.
+
+\section{Annex G --- Core Gateway API}
+$\texttt{run\_with\_lexicode(lexi\_ascii, action, context, sim, ledger)}$ returns verdict, metrics, applied caps, reasons, and proof hash.
+
+\section*{Dedication}
+To Xylie, Taric, and Lumina Siano---thank you for inspiring a framework that helps us make kind, fair, and thoughtful choices every day.
+
+\end{document}
