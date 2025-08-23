@@ -1,5 +1,5 @@
 Just trying to provide my version of what seems to be a universal framework. For anything and everything. 
-From virtual particles to univere's, a translator from a person(s) framework relative to the Hyper-verse. 
+From virtual particles to univere's, a translator from a Being(s) framework relative to the Hyper-verse. 
 Not disproving anyone subjective version since everyone subjective opinion and subjective fact are embedded into the Framework, or else it wouldnt/couldnt/shouldnt(reason why such metaphors and analogies are like complex algroithms to LLMs) even exist.
 
 Potential(P)(arrow) Acutalized Reality(AR). This is why Time exists. Why it "feels, measured, sensed" in a single direction. 
