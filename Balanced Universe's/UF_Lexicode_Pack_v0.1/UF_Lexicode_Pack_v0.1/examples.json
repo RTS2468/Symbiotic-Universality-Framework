@@ -1,0 +1,46 @@
+[
+  {
+    "mnemo": "B-C80-EG05-F05-HC01-O-RI-RV",
+    "ascii": "B-C80-EG05-F05-HC01-O-RI-RV # 8E41",
+    "bit_len": 73,
+    "bitstring": "1001101011001101111100001001100000011010000000010100001011000111001000001",
+    "decoded_tokens": [
+      "B",
+      "C",
+      "EG",
+      "F",
+      "HC",
+      "O",
+      "RI",
+      "RV"
+    ],
+    "decoded_params": {
+      "HC": 1,
+      "C": 80,
+      "F": 5,
+      "EG": 5
+    },
+    "decoded_checksum": "8E41"
+  },
+  {
+    "mnemo": "B-C80-EG05-F05-H-O-RI",
+    "ascii": "B-C80-EG05-F05-H-O-RI # 9A45",
+    "bit_len": 63,
+    "bitstring": "100110101100110111100000101010000000010100001011001101001000101",
+    "decoded_tokens": [
+      "B",
+      "C",
+      "EG",
+      "F",
+      "H",
+      "O",
+      "RI"
+    ],
+    "decoded_params": {
+      "C": 80,
+      "F": 5,
+      "EG": 5
+    },
+    "decoded_checksum": "9A45"
+  }
+]

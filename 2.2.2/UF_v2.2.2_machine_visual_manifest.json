@@ -1,0 +1,39 @@
+{
+  "bytemap": {
+    "file": "UF_v2.2.2_pxir_wire_bytemap.png",
+    "sha256": "d0efb16658dc15186635760d009b6f738da75c3a1f7516076498e4b6e0034da6",
+    "encode": "Pack CBOR bytes into RGB triplets, row-major. Pad tail with zeros.",
+    "shape": [
+      11,
+      12,
+      3
+    ],
+    "bytes_len": 389,
+    "wire_sha256": "d1fb99ab9f32aca5766999bd1915cea3f673da00d41980cab2e2ab9d57e0dfa7"
+  },
+  "seed_schedule_preview": {
+    "file": "UF_v2.2.2_seed_schedule_preview.png",
+    "sha256": "c2ab2c7d452b226ffe6ae5b32f296388a460af19812069d19d2a7f24ee60938b",
+    "seed": 12345678,
+    "schedule": "cosine",
+    "beta_start": 0.00085,
+    "beta_end": 0.012,
+    "size": [
+      512,
+      512
+    ],
+    "note": "Row-weighted noise preview; deterministic for given seed and schedule."
+  },
+  "latent4_mosaic": {
+    "file": "UF_v2.2.2_latent4_mosaic.png",
+    "sha256": "383dd667a0550bf306c55649d23779303e30f6e9b3c3d687c7720db5b0b27991",
+    "latent_shape": [
+      64,
+      64,
+      4
+    ],
+    "layout": "2x2 tiles (ch0 ch1; ch2 ch3)",
+    "scale": 4,
+    "note": "Deterministic tiles from RNG(seed+1); illustrative of 4 latent channels."
+  }
+}

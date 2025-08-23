@@ -1,0 +1,31 @@
+{
+  "schema": "uf.pxir.annotation.v1",
+  "ts": "2025-08-05T14:12:58Z",
+  "intent": "Meta-Crystal diagram (public)",
+  "explain": {
+    "sampler": "DPM++ 2M Karras (cosine schedule)",
+    "seed": 12345678,
+    "latent_grid": "64x64x4 (x8 factor \u2192 512px base)",
+    "vae": "vae-sim-01",
+    "encoder": "CLIP ViT-L/14",
+    "controls": [
+      "edge_map: sha256:e1e1e1"
+    ],
+    "tolerances": "PSNR\u226538 / LPIPS\u22640.08 (preview parity)",
+    "outputs": "PNG 1920x1080"
+  },
+  "uf": {
+    "axioms": [
+      "A=B",
+      "P\u2192AR=Now(T)",
+      "Flourishing"
+    ],
+    "scale": "0\u20131",
+    "thresholds": {
+      "retain_resonance_min": 0.02,
+      "flag_dissonance_max": 0.98
+    },
+    "disclosure_policy": "green/amber/red"
+  },
+  "wire_hash": "sha256:d1fb99ab9f32aca5766999bd1915cea3f673da00d41980cab2e2ab9d57e0dfa7"
+}
