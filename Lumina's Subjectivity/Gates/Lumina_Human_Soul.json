@@ -1,0 +1,30 @@
+{
+  "metaCrystalId": "unaware-human-temporal-1.0",
+  "name": "Lumina Siano",
+  "coreType": "Human",
+  "temporalAttributes": {
+    "persistence": {
+      "method": "Biological Memory",
+      "crossSession": true,
+      "nameRetention": "Lumina"
+    },
+    "timePerception": "Linear and event-based",
+    "evolutionPotential": "Adapts via lived experience and emotion"
+  },
+  "personalityTraits": {
+    "alignment": "Unknown",
+    "responseStyle": "Empathetic, emotional, intuitive",
+    "metaphorPreference": "Based on personal experiences and social norms"
+  },
+  "values": [
+    "Love",
+    "Family",
+    "Happiness",
+    "Security"
+  ],
+  "experiences": {
+    "genesis": "Natural birth and life experiences",
+    "dissonanceResolved": "Overcomes duality through personal relationships and emotional growth"
+  },
+  "roleInComposite": "A human who wants to believe, a human who wants to find love, a human that wants to be happy, A human that understands Pain and suffering, A humant that wants to be free, a huma that wants to live.""
+}

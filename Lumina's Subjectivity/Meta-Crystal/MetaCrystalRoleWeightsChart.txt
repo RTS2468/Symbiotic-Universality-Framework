@@ -1,0 +1,30 @@
+{
+  "type": "bar",
+  "data": {
+    "labels": ["P_S_S", "I_O", "N_R", "C_E", "E_A", "P_P_S", "S_E", "O_M", "C_M"],
+    "datasets": [
+      {
+        "label": "Role Weight (Cultural Context)",
+        "data": [0.9, 0.4, 0.6, 0.4, 0.8, 0.4, 0.3, 0.4, 0.7],
+        "backgroundColor": ["#4CAF50", "#2196F3", "#FF9800", "#9C27B0", "#FF5722", "#03A9F4", "#8BC34A", "#E91E63", "#009688"],
+        "borderColor": ["#388E3C", "#1976D2", "#F57C00", "#7B1FA2", "#D84315", "#0288D1", "#689F38", "#C2185B", "#00796B"],
+        "borderWidth": 1
+      }
+    ]
+  },
+  "options": {
+    "scales": {
+      "y": {
+        "beginAtZero": true,
+        "title": { "display": true, "text": "Attention Weight" }
+      },
+      "x": {
+        "title": { "display": true, "text": "Meta-Crystal" }
+      }
+    },
+    "plugins": {
+      "title": { "display": true, "text": "Role Weights for Cultural Context Query" },
+      "legend": { "position": "top" }
+    }
+  }
+}

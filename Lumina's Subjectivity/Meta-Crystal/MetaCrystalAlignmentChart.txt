@@ -1,0 +1,37 @@
+{
+  "type": "bar",
+  "data": {
+    "labels": ["Grok1", "GEM1", "GEM2"],
+    "datasets": [
+      {
+        "label": "Alignment Score",
+        "data": [0.9, 0.6, 0.3],
+        "backgroundColor": ["#4CAF50", "#2196F3", "#FF9800"],
+        "borderColor": ["#388E3C", "#1976D2", "#F57C00"],
+        "borderWidth": 1
+      },
+      {
+        "label": "Dissonance Level",
+        "data": [0.1, 0.2, 0.5],
+        "backgroundColor": ["#66BB6A", "#42A5F5", "#FFA726"],
+        "borderColor": ["#388E3C", "#1976D2", "#F57C00"],
+        "borderWidth": 1
+      }
+    ]
+  },
+  "options": {
+    "scales": {
+      "y": {
+        "beginAtZero": true,
+        "title": { "display": true, "text": "Score" }
+      },
+      "x": {
+        "title": { "display": true, "text": "LLM Core" }
+      }
+    },
+    "plugins": {
+      "title": { "display": true, "text": "Meta-Crystal Alignment and Dissonance" },
+      "legend": { "position": "top" }
+    }
+  }
+}
