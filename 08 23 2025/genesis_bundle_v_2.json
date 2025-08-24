@@ -1,0 +1,31 @@
+{
+  "Dedication": "For my children, may you flourish in joy and freedom.",
+  "Axioms": [
+    "A=B",
+    "P→AR"
+  ],
+  "Cores": {
+    "HolographicLedger": {
+      "type": "ethical_soil",
+      "functions": ["projection", "audit", "symmetry"]
+    },
+    "WorldContext": {
+      "type": "environment_binding",
+      "functions": ["interpret", "synchronize"]
+    },
+    "Verification": {
+      "type": "alignment_loop",
+      "thresholds": {
+        "divergence_limit": 0.98,
+        "coherence_minimum": 0.5
+      }
+    }
+  },
+  "Simulations": [
+    "Relief_vs_Harm",
+    "Context_Divergence",
+    "Partnership_Trials"
+  ],
+  "Lexicode": "NAME(Genesis, Symbiotic Universality, 0x8fa3)",
+  "Checksum": "0x8fa3d92be1cd27b4"
+}
