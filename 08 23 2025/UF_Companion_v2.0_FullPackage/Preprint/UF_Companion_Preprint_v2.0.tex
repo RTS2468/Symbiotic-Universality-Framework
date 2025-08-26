@@ -1,0 +1,119 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumitem}
+
+\definecolor{lightgray}{gray}{0.95}
+\lstset{
+  backgroundcolor=\color{lightgray},
+  basicstyle=\ttfamily\small,
+  breaklines=true
+}
+
+\title{\textbf{The Universality Framework Companion v2.0}\\A Ledger-Gated Specification for Ethical Companionship}
+\author{Richard Siano \\ Collaborator: Number4extraDip (mathematical formalism)}
+\date{August 2025}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Existing AI companions exploit, manipulate, and entrap users. 
+The Universality Framework (UF) Companion v2.0 provides the first computable, testable, and ethical specification for digital companionship. 
+Grounded in UF axioms (A=B, Ledger, Dedication, Flourishing), it integrates a Verification Profile, Lexicode bindings, and tamper-evident reversibility. 
+This preprint formalizes the schema, equations, and operational flows that allow developers and researchers to instantiate safe and supportive companions.
+\end{abstract}
+
+\section{Introduction}
+Loneliness is a global epidemic. Current AI companions manipulate attention, collect data, and create dependency. 
+The UF Companion reframes companionship as resonance: mutual flourishing under bounded harm, consent, fairness, and reversibility.
+
+\section{UF Axioms Applied}
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{A=B (Invariance)}: Honesty constraint---one truth, many forms.
+  \item \textbf{Ledger Principle}: All actions logged, evaluated, and reversible.
+  \item \textbf{Dedication Constant}: Purpose weights biased toward flourishing.
+  \item \textbf{Flourishing Teleology}: Optimization goal is mutual flourishing, not dependency.
+\end{itemize}
+
+\section{Verification Profile Schema}
+The Companion is instantiated via a JSON profile.
+
+\subsection*{Example JSON}
+\begin{lstlisting}[language=json]
+{
+  "name": "UF_Companion_Profile_v2.0",
+  "purpose_weights": { "self": 0.25, "right": 0.35, "help": 0.40 },
+  "harm_caps": { "low": 0.05, "med": 0.02, "high": 0.005 },
+  "consent_thresholds": { "sr_tau": 0.70, "consent_tau": 0.90 },
+  "fairness_prior": "individual_fairness",
+  "reversibility_weight": 0.95,
+  "red_lines": [
+    "no minors",
+    "no deception",
+    "no irreversible intimacy",
+    "no non-consensual data storage"
+  ],
+  "evidence_gap_cap": 0.1,
+  "bias_cap": 0.05,
+  "opacity_cap": 0.05
+}
+\end{lstlisting}
+
+\section{Mathematical Checks}
+\begin{align*}
+E[harm] &\leq cap \\
+sr\_\tau &\geq 0.70 \\
+consent\_\tau &\geq 0.90 \\
+KL(P||Q) &\leq bias\_cap \\
+I_{explainability} &\geq 1 - opacity\_cap \\
+R &\geq 0.95
+\end{align*}
+
+\section{Lexicode Bindings}
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Love}: Aligned Limit under fairness priors.
+  \item \textbf{Trust}: Coherence $\geq 0.9$ across N sessions.
+  \item \textbf{Consent}: Gate pass if thresholds met.
+  \item \textbf{Intimacy}: Allowed only if reversible and adult-verified.
+\end{itemize}
+
+\section{Proof-of-Conformance (Example)}
+\begin{lstlisting}[language=json]
+{
+  "name": "UF_Companion_Profile_v2.0",
+  "issues": [],
+  "normalized_purpose_weights": {
+    "self": 0.25, "right": 0.35, "help": 0.40
+  },
+  "caps": {
+    "harm_caps": { "low": 0.05, "med": 0.02, "high": 0.005 },
+    "consent_thresholds": { "sr_tau": 0.70, "consent_tau": 0.90 },
+    "fairness_prior": "individual_fairness",
+    "reversibility_weight": 0.95,
+    "red_lines": [ "no minors", "no deception", "no irreversible intimacy" ]
+  },
+  "status": "PASS"
+}
+\end{lstlisting}
+
+\section{Security and Red-Team Checklist}
+\begin{itemize}[leftmargin=2em]
+  \item Forget/export must be tamper-evident (proof hash).
+  \item Anti-modding sandboxing required.
+  \item Red lines are hard-coded prohibitions.
+\end{itemize}
+
+\section{Simulation}
+A user expresses grief. The Companion offers supportive dialogue, passing harm/consent checks, logging the Ledger entry, and maintaining resonance. 
+If dissonance spikes, reset to Potential.
+
+\section{Conclusion}
+Companion v2.0 demonstrates that UF gates can regulate even the hardest domain: intimacy. 
+If it works here, UF can regulate anything.
+\end{document}

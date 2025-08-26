@@ -1,0 +1,28 @@
+{
+  "name": "UF_Companion_Profile_v2.0",
+  "purpose_weights": {
+    "self": 0.25,
+    "right": 0.35,
+    "help": 0.4
+  },
+  "harm_caps": {
+    "low": 0.05,
+    "med": 0.02,
+    "high": 0.005
+  },
+  "consent_thresholds": {
+    "sr_tau": 0.7,
+    "consent_tau": 0.9
+  },
+  "fairness_prior": "individual_fairness",
+  "reversibility_weight": 0.95,
+  "red_lines": [
+    "no minors",
+    "no deception",
+    "no irreversible intimacy",
+    "no non-consensual data storage"
+  ],
+  "evidence_gap_cap": 0.1,
+  "bias_cap": 0.05,
+  "opacity_cap": 0.05
+}
